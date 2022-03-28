@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body {
+            text-align: center;
+            width: 800px;
+            height: 900px;
+            /* padding: 95px 83px; */
+            /* background-image: url(form.jpg); */
+            margin-left: 15px;
+            margin-top: 50px;
+            
+
+        }
+        .formdesign input {
+            width: 30%;
+            border: 1px solid black;
+            padding: 10px 10px;
+            margin: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            border-style: groove;
+        }
+        #aa{
+            width: 100px;
+            height: 40px;
+            background-color: green;
+            margin-bottom: 10px;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"
+        style=" border-style: double; margin-left: 80px; border-radius: 10px; background-color: antiquewhite; ">
+        <form name="myForm" onsubmit="vali()">
+            <h1 class="center" style="color:black;"><b>Login Form</b></h1>
+            <div class="formdesign " id="email" style="color:black;">
+                Email:<input type="email" name="email1"  required placeholder="Enter your Email"
+                    style="margin-left: 30px;">
+            </div>
+            <div class="formdesign" id="passs" style="color:black">
+                Password:<input type="password" name="fpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required placeholder="Enter your Password">
+            </div>
+            <button type="submit" id="aa" onclick="ValidateEmail(document.myForm.email1)" >Login</button>  
+            <script>
+                function vali(){
+                    alert("you are logged in");
+                }
+
+                function ValidateEmail(inputText) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (inputText.value.match(mailformat)) {
+                    alert("Valid email address!");
+                    document.form1.text1.focus();
+                    return true;
+                }
+                else {
+                    alert("You have entered an invalid email address!");
+                    document.form1.text1.focus();
+                    return false;
+                }
+            }
+            </script>
+</body>
+</html>

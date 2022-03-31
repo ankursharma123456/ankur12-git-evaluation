@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            text-align: center;
+            width: 800px;
+            height: 800px;
+            padding: 95px 83px;
+
+        }
+
+        .formdesign input {
+            width: 30%;
+            border: 1px solid black;
+            padding: 10px 10px;
+            margin: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            border-style: groove;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"
+        style="background-color: rgb(127, 193, 255);  border-style: double; margin-left: 80px; border-radius: 10px; background-image: url(background.jpg);">
+        <form  action="connect.php" name="myForm" onsubmit="vali()" method="post" >
+            <h1 class="center"><b>Registration Form</b></h1>
+            <div class="formdesign" id="name">
+                First_Name:<input type="name" name="fname" pattern="[a-zA-Z]{3,10}" required
+                    placeholder="Enter your first Name">
+            </div>
+            <div class="formdesign" id="name">
+                last_Name:<input type="text" name="lname" pattern="[a-zA-Z]{3,10}" required
+                    placeholder="Enter your last_Name ">
+            </div>
+            <div class="formdesign " >
+                Email:<input type="email" name="email1" required placeholder="Enter your Email"
+                    style="margin-left: 30px;">
+            </div>
+
+            <div class="formdesign">
+                Password:<input type="password" name="p" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    required placeholder="Enter your Password">
+            </div>
+            <div class="formdesign">
+                Confirm Password:<input type="password" name="cp" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    required placeholder="Enter your Confirm Password">
+            </div>
+            <!-- <input class="btn " type="button" value="Submit" style="background-color: green; width: 12%;height:34px; color: white;font-size: medium; margin-bottom: 8px;border-radius: 10px;">  -->
+
+
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <button type="submit" class="registerbtn" onclick="ValidateEmail(document.myForm.email1)" style="margin-bottom: 10px;">Register</button>
+
+            <div class="container signin">
+                <p>Already have an account? <a href="#">Sign in</a>.</p>
+            </div>
+
+        </form>
+        <script>
+            function vali() {
+
+                let p = document.forms["myForm"]["p"].value;
+
+                let cp = document.forms["myForm"]["cp"].value;
+
+                if (p !== cp) {
+
+                    alert("please enter correct confirm password");
+
+                }
+                else {
+
+                    alert("you are Registered");
+
+                }
+
+            }
+            function ValidateEmail(inputText) {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (inputText.value.match(mailformat)) {
+                    alert("Valid email address!");
+                    document.form1.text1.focus();
+                    return true;
+                }
+                else {
+                    alert("You have entered an invalid email address!");
+                    document.form1.text1.focus();
+                    return false;
+                }
+            }
+
+
+
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
